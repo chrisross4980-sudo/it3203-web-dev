@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A timeline from early web exchanges through HTTP/1.1 and the move to multiplexed protocols.">
+<title>HTTP history | HTTP Field Notes</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+<a class="brand" href="index.html"><span class="brand-mark">H</span><span>HTTP Field Notes<small>IT 3203 · Fall 2026</small></span></a>
+<!-- Keep this menu in the same order on every page. -->
+<nav aria-label="Main navigation"><ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="foundations.html">Foundations</a></li>
+        <li><a href="history.html" aria-current="page">History</a></li>
+        <li><a href="http2.html">HTTP/2</a></li>
+        <li><a href="http3.html">HTTP/3</a></li>
+        <li><a href="concepts.html">Key concepts</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="references.html">References</a></li>
+        <li><a href="about.html">About</a></li>
+</ul></nav>
+</header>
+<main id="main-content">
+<header class="page-heading"><p class="eyebrow">02 · The timeline</p><h1>HTTP grows with the web</h1><p class="lead">As pages added more content and users, HTTP gained richer messages and more efficient ways to move them.</p></header>
+<section class="content-panel"><h2>From research project to global platform</h2><p>Tim Berners-Lee proposed the World Wide Web at CERN in 1989. Early web software paired addresses, hypertext, a browser, a server, and HTTP. CERN’s history describes the first web server and browser and the later release of the web software. <a href="https://home.cern/science/computing/the-birth-of-the-web/">Read CERN’s account</a>.</p>
+<ol class="timeline">
+<li><strong>HTTP/0.9</strong><span>A small GET request and an HTML response suited the early, text-focused web.</span></li>
+<li><strong>HTTP/1.0</strong><span>Version information, status codes, headers, and response metadata made messages more expressive.</span></li>
+<li><strong>HTTP/1.1</strong><span>Persistent connections and clearer caching, routing, and message rules supported more complex sites.</span></li>
+<li><strong>HTTP/2</strong><span>Binary framing and multiplexed streams improved how exchanges could share a TCP connection.</span></li>
+<li><strong>HTTP/3</strong><span>QUIC changed the transport under HTTP while keeping its core semantics familiar.</span></li>
+</ol></section>
+<section class="content-panel"><h2>Compare the major stages</h2><!-- Table compares protocol features and the problems they addressed. -->
+<div class="table-wrap"><table><caption>How HTTP changed as the web grew</caption><thead><tr><th scope="col">Version</th><th scope="col">Main change</th><th scope="col">Tradeoff or problem addressed</th></tr></thead><tbody>
+<tr><th scope="row">0.9</th><td>Minimal GET and document response</td><td>Simple, but limited for errors, metadata, and varied media</td></tr>
+<tr><th scope="row">1.0</th><td>Status line, headers, and message metadata</td><td>More capable messages; connections were commonly short-lived</td></tr>
+<tr><th scope="row">1.1</th><td>Persistent connections and clearer shared rules</td><td>Still text-based and less suited to many concurrent page resources</td></tr>
+<tr><th scope="row">2</th><td>Binary frames, streams, multiplexing, HPACK</td><td>TCP packet loss can pause delivery across the connection</td></tr>
+<tr><th scope="row">3</th><td>HTTP over QUIC with QPACK</td><td>Needs UDP connectivity; deployments can fall back to other versions</td></tr>
+</tbody></table></div>
+<p>These summaries use <a href="https://www.rfc-editor.org/rfc/rfc1945.html">HTTP/1.0</a>, <a href="https://www.rfc-editor.org/rfc/rfc9112.html">HTTP/1.1</a>, <a href="https://www.rfc-editor.org/rfc/rfc9113.html">HTTP/2</a>, and <a href="https://www.rfc-editor.org/rfc/rfc9114.html">HTTP/3</a>.</p></section>
+<section class="content-panel"><h2>Why HTTP/1.1 was not the end</h2><p>Persistent connections avoid reconnecting for every resource, but modern pages may request many resources. HTTP/2 introduced concurrent streams over one TCP connection. This helps many workloads, although TCP still delivers bytes in order: packet loss can delay data for multiple streams sharing that connection. HTTP/3 uses QUIC streams to avoid that particular cross-stream delivery dependency. Performance still depends on the network, server, browser, and workload; a newer version is not automatically faster in every situation.</p></section>
+<p class="page-next"><a href="http2.html">Next: see how HTTP/2 multiplexes exchanges <span aria-hidden="true">→</span></a></p>
+</main>
+<footer class="site-footer">
+<p>This is a class project for <a href="https://ksuweb.github.io/IT3203/">IT 3203 Web Development</a>.</p>
+<p><a href="about.html">About this project</a></p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Seven key HTTP concepts: requests, methods, status, fields, representations, caching, and state.">
+<title>Key concepts | HTTP Field Notes</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+<a class="brand" href="index.html"><span class="brand-mark">H</span><span>HTTP Field Notes<small>IT 3203 · Fall 2026</small></span></a>
+<!-- Keep this menu in the same order on every page. -->
+<nav aria-label="Main navigation"><ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="foundations.html">Foundations</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="http2.html">HTTP/2</a></li>
+        <li><a href="http3.html">HTTP/3</a></li>
+        <li><a href="concepts.html" aria-current="page">Key concepts</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="references.html">References</a></li>
+        <li><a href="about.html">About</a></li>
+</ul></nav>
+</header>
+<main id="main-content">
+<header class="page-heading"><p class="eyebrow">05 · Study guide</p><h1>Seven concepts behind the exchange</h1><p class="lead">These terms apply across HTTP versions, even when the wire format and transport change.</p></header>
+<section class="content-panel"><ol class="concept-list">
+<li><h2>Request and response</h2><p>The client sends a request describing a target and intended action. The server or an intermediary returns a response with a status and related information.</p></li>
+<li><h2>Method</h2><p>The method states what the client wants done. GET retrieves a representation; POST submits content for processing. Safe and idempotent describe important method properties; they are not interchangeable.</p></li>
+<li><h2>Status code</h2><p>The response status summarizes the outcome. Its first digit groups the class: 2xx success, 3xx redirection, 4xx client error, and 5xx server error.</p></li>
+<li><h2>Header field</h2><p>Fields carry metadata, such as media type, caching instructions, content negotiation, or authentication information. The <a href="https://www.iana.org/assignments/http-fields/">IANA HTTP Field Name Registry</a> tracks registered names.</p></li>
+<li><h2>Representation</h2><p>A representation is data describing a resource in a format such as HTML, JSON, or an image. Content-Type tells the recipient how to interpret its media type.</p></li>
+<li><h2>Cache</h2><p>A cache can reuse a stored response when freshness and validation rules allow it. <a href="https://www.rfc-editor.org/rfc/rfc9111.html">RFC 9111</a> defines HTTP caching, including Cache-Control and validators.</p></li>
+<li><h2>Statelessness and application state</h2><p>HTTP’s core exchange does not require a server to remember prior requests. Applications add state with cookies, sessions, tokens, and storage. Cookie handling also has privacy and security consequences.</p></li>
+</ol></section>
+<section class="content-panel"><h2>Try an observation in your browser</h2><ol><li>Open a page and choose the browser’s Developer Tools.</li><li>Select the Network panel and reload the page.</li><li>Choose a request and inspect its method, status, fields, protocol, and timing.</li></ol><p>For definitions, use <a href="https://www.rfc-editor.org/rfc/rfc9110.html">RFC 9110</a> alongside the approachable <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP">MDN HTTP guides</a>.</p></section>
+<p class="page-next"><a href="references.html">Next: review the sources <span aria-hidden="true">→</span></a></p>
+</main>
+<footer class="site-footer">
+<p>This is a class project for <a href="https://ksuweb.github.io/IT3203/">IT 3203 Web Development</a>.</p>
+<p><a href="about.html">About this project</a></p>
+</footer>
+</body>
+</html>

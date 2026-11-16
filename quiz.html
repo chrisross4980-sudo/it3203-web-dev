@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Test your understanding of HTTP foundations, history, HTTP/2, and HTTP/3 with a timed self-assessment.">
+<title>HTTP self-assessment quiz | HTTP Field Notes</title>
+<link rel="stylesheet" href="styles.css">
+<script src="quiz.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+<a class="brand" href="index.html"><span class="brand-mark">H</span><span>HTTP Field Notes<small>IT 3203 · Fall 2026</small></span></a>
+<!-- Keep this menu in the same order on every page. -->
+<nav aria-label="Main navigation"><ul class="nav-list">
+<li><a href="index.html">Home</a></li>
+<li><a href="foundations.html">Foundations</a></li>
+<li><a href="history.html">History</a></li>
+<li><a href="http2.html">HTTP/2</a></li>
+<li><a href="http3.html">HTTP/3</a></li>
+<li><a href="concepts.html">Key concepts</a></li>
+<li><a href="quiz.html" aria-current="page">Quiz</a></li>
+<li><a href="references.html">References</a></li>
+<li><a href="about.html">About</a></li>
+</ul></nav>
+</header>
+<main id="main-content">
+<header class="page-heading"><p class="eyebrow">Self-assessment · 10 questions · 10 minutes</p><h1>Check your HTTP understanding</h1><p class="lead">Review the site, start the timer when you are ready, and answer each question. You need 7 out of 10 points to pass.</p></header>
+<!-- Results are inserted here so the score and per-question feedback appear near the top. -->
+<section id="quiz-results" class="quiz-results" aria-live="polite" aria-atomic="true" hidden></section>
+<section class="quiz-toolbar" aria-label="Quiz timer and instructions">
+<div><p class="eyebrow">Time remaining</p><p id="quiz-timer" class="quiz-timer" role="timer" aria-live="off">10:00</p></div>
+<p>Each question is worth one point. Blank answers count as incorrect. The quiz submits automatically when the timer reaches zero.</p>
+<button id="start-quiz" class="button-link" type="button">Start the 10-minute quiz</button>
+</section>
+<form id="http-quiz" class="quiz-form">
+<fieldset disabled><legend>01 · Fill in the blank</legend><label for="q1">HTTP is an protocol.</label><input id="q1" name="q1" type="text" autocomplete="off" placeholder="Type one word" aria-describedby="q1-help"><small id="q1-help" class="field-hint">Enter “application” or “app”.</small></fieldset>
+<fieldset disabled><legend>02 · Multiple choice</legend><p class="question-prompt" id="q2-prompt">Which method is commonly used to retrieve a resource?</p><div class="choice-list" role="radiogroup" aria-labelledby="q2-prompt"><label><input type="radio" name="q2" value="GET"> GET</label><label><input type="radio" name="q2" value="POST"> POST</label><label><input type="radio" name="q2" value="DELETE"> DELETE</label><label><input type="radio" name="q2" value="PATCH"> PATCH</label></div></fieldset>
+<fieldset disabled><legend>03 · Fill in the blank</legend><label for="q3">HTTP/2 uses to compress header fields.</label><input id="q3" name="q3" type="text" autocomplete="off" placeholder="Type the compression format"></fieldset>
+<fieldset disabled><legend>04 · Select all that apply</legend><p class="question-prompt" id="q4-prompt">Which statements about HTTP/3 and QUIC are accurate? Select every correct answer.</p><div class="choice-list" aria-labelledby="q4-prompt"><label><input type="checkbox" name="q4" value="udp"> QUIC runs over UDP.</label><label><input type="checkbox" name="q4" value="qpack"> HTTP/3 uses QPACK for field compression.</label><label><input type="checkbox" name="q4" value="independent"> QUIC provides independent streams.</label><label><input type="checkbox" name="q4" value="tcp"> HTTP/3 uses TCP as its transport.</label></div></fieldset>
+<fieldset disabled><legend>05 · Multiple choice</legend><p class="question-prompt" id="q5-prompt">What does the HTTP status code 404 indicate?</p><div class="choice-list" role="radiogroup" aria-labelledby="q5-prompt"><label><input type="radio" name="q5" value="success"> The request succeeded.</label><label><input type="radio" name="q5" value="redirect"> The resource moved permanently.</label><label><input type="radio" name="q5" value="not-found"> The requested resource was not found.</label><label><input type="radio" name="q5" value="server-error"> The server encountered an error.</label></div></fieldset>
+<fieldset disabled><legend>06 · Multiple choice</legend><p class="question-prompt" id="q6-prompt">In Cache-Control, what does <code>max-age=60</code> specify?</p><div class="choice-list" role="radiogroup" aria-labelledby="q6-prompt"><label><input type="radio" name="q6" value="size"> A response size limit of 60 bytes.</label><label><input type="radio" name="q6" value="freshness"> A freshness lifetime of 60 seconds.</label><label><input type="radio" name="q6" value="status"> A status code to return after 60 seconds.</label><label><input type="radio" name="q6" value="retry"> A retry delay of 60 minutes.</label></div></fieldset>
+<fieldset disabled><legend>07 · True or false</legend><p class="question-prompt" id="q7-prompt">HTTP requires the server to remember the previous request from a client.</p><div class="choice-list" role="radiogroup" aria-labelledby="q7-prompt"><label><input type="radio" name="q7" value="true"> True</label><label><input type="radio" name="q7" value="false"> False</label></div></fieldset>
+<fieldset disabled><legend>08 · Multiple choice</legend><label for="q8">Which field-compression format is used by HTTP/3?</label><select id="q8" name="q8"><option value="">Choose an answer</option><option value="hpack">HPACK</option><option value="qpack">QPACK</option><option value="gzip">GZIP</option><option value="brotli">Brotli</option></select></fieldset>
+<fieldset disabled><legend>09 · Multiple choice</legend><p class="question-prompt" id="q9-prompt">Which protocol provides encryption for HTTPS?</p><div class="choice-list" role="radiogroup" aria-labelledby="q9-prompt"><label><input type="radio" name="q9" value="dns"> DNS</label><label><input type="radio" name="q9" value="tls"> TLS</label><label><input type="radio" name="q9" value="html"> HTML</label><label><input type="radio" name="q9" value="dhcp"> DHCP</label></div></fieldset>
+<fieldset disabled><legend>10 · Fill in the blank</legend><label for="q10">An HTTP response status in the 5xx class indicates a error.</label><input id="q10" name="q10" type="text" autocomplete="off" placeholder="Type the error class"><small class="field-hint">Enter “server” or “server-side”.</small></fieldset>
+<div class="quiz-actions"><button id="submit-quiz" class="button-link" type="submit" hidden>Submit quiz</button><button id="retake-quiz" class="button-secondary" type="button" hidden>Retake quiz</button></div>
+</form>
+</main>
+<footer class="site-footer"><p>This is a class project for <a href="https://ksuweb.github.io/IT3203/">IT 3203 Web Development</a>.</p><p><a href="about.html">About this project</a></p></footer>
+</body>
+</html>

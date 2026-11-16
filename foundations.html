@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Learn how HTTP requests, responses, methods, status codes, and fields work together.">
+<title>HTTP foundations | HTTP Field Notes</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+<a class="brand" href="index.html"><span class="brand-mark">H</span><span>HTTP Field Notes<small>IT 3203 · Fall 2026</small></span></a>
+<!-- Keep this menu in the same order on every page. -->
+<nav aria-label="Main navigation"><ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="foundations.html" aria-current="page">Foundations</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="http2.html">HTTP/2</a></li>
+        <li><a href="http3.html">HTTP/3</a></li>
+        <li><a href="concepts.html">Key concepts</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="references.html">References</a></li>
+        <li><a href="about.html">About</a></li>
+</ul></nav>
+</header>
+<main id="main-content">
+<header class="page-heading"><p class="eyebrow">01 · Shared semantics</p><h1>The basic exchange</h1><p class="lead">Every version of HTTP gives a client and server a common way to describe a request and its result.</p></header>
+<section class="content-panel"><h2>HTTP’s place in the web stack</h2>
+<p>A browser uses a URL to identify a resource, then sends an HTTP request to an origin server or intermediary. The response carries a status, metadata in header fields, and often a representation such as HTML, an image, or JSON. A page can trigger many exchanges as the browser loads styles, scripts, fonts, images, and API data.</p>
+<p>HTTP is an application protocol. HTTP/1.1 and HTTP/2 commonly use TCP underneath. HTTP/3 maps the same broad semantics onto QUIC, which runs over UDP. HTTPS protects HTTP exchanges with TLS; QUIC integrates TLS 1.3 into its connection setup. See <a href="https://www.rfc-editor.org/rfc/rfc9110.html">HTTP Semantics</a> and <a href="https://www.rfc-editor.org/rfc/rfc9114.html">HTTP/3</a>.</p>
+<figure class="diagram-card diagram-wide"><img src="assets/http-stack.svg" alt="The client sends an HTTP request through a transport connection; the server returns an HTTP response."><figcaption>HTTP defines the application-level exchange. The transport carrying it depends on the version.</figcaption></figure></section>
+<section class="content-panel"><h2>Request and response structure</h2><div class="two-column">
+<div><h3>A request</h3><p>A request identifies an action and target. It may include fields that describe client preferences, credentials, or message content.</p><pre><code>GET /docs HTTP/1.1
+Host: example.edu
+Accept: text/html</code></pre></div>
+<div><h3>A response</h3><p>The server returns a status and fields. A response may include a representation or direct the client elsewhere.</p><pre><code>HTTP/1.1 200 OK
+Content-Type: text/html
+Cache-Control: max-age=60</code></pre></div>
+</div></section>
+<section class="content-panel"><h2>HTTP is stateless by design</h2><p>HTTP does not require the server to remember an earlier request when it receives the next one. Applications build continuity with mechanisms such as cookies, session identifiers, tokens, or server-side data. Cookie scope and security attributes matter.</p><h2>Methods and status codes</h2><p>A method describes the request’s intended action. GET asks for a representation; POST sends content for processing; PUT and DELETE describe changes to a target. The status code summarizes the response: 2xx is success, 3xx redirects, 4xx reports a client-side problem, and 5xx reports a server-side failure. Current definitions are in <a href="https://www.rfc-editor.org/rfc/rfc9110.html">RFC 9110</a>.</p></section>
+<p class="page-next"><a href="history.html">Next: follow HTTP’s evolution <span aria-hidden="true">→</span></a></p>
+</main>
+<footer class="site-footer">
+<p>This is a class project for <a href="https://ksuweb.github.io/IT3203/">IT 3203 Web Development</a>.</p>
+<p><a href="about.html">About this project</a></p>
+</footer>
+</body>
+</html>

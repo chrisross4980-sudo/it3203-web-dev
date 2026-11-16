@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="HTTP/2 uses binary frames, multiplexed streams, and HPACK header compression over TCP.">
+<title>HTTP/2 | HTTP Field Notes</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+<a class="brand" href="index.html"><span class="brand-mark">H</span><span>HTTP Field Notes<small>IT 3203 · Fall 2026</small></span></a>
+<!-- Keep this menu in the same order on every page. -->
+<nav aria-label="Main navigation"><ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="foundations.html">Foundations</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="http2.html" aria-current="page">HTTP/2</a></li>
+        <li><a href="http3.html">HTTP/3</a></li>
+        <li><a href="concepts.html">Key concepts</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="references.html">References</a></li>
+        <li><a href="about.html">About</a></li>
+</ul></nav>
+</header>
+<main id="main-content">
+<header class="page-heading"><p class="eyebrow">03 · A protocol redesign</p><h1>HTTP/2: more exchanges on one connection</h1><p class="lead">HTTP/2 changed how messages travel across the network while preserving the HTTP meanings applications use.</p></header>
+<section class="content-panel"><h2>One connection, many streams</h2><p>HTTP/2 represents messages with binary frames. Frames from multiple streams can be interleaved on one TCP connection, so a browser and server can handle concurrent exchanges. <a href="https://www.rfc-editor.org/rfc/rfc9113.html">RFC 9113</a> describes it as an optimized expression of HTTP semantics.</p>
+<div class="feature-grid"><article class="feature-card"><span class="card-number">01</span><h3>Binary framing</h3><p>Frames carry message parts and control information in a format meant for parsing rather than direct reading.</p></article>
+<article class="feature-card"><span class="card-number">02</span><h3>Multiplexing</h3><p>Several streams can make progress on one connection, reducing the need for many connections to the same origin.</p></article>
+<article class="feature-card"><span class="card-number">03</span><h3>HPACK</h3><p>Header compression reduces repeated field bytes. HPACK is specified in <a href="https://www.rfc-editor.org/rfc/rfc7541.html">RFC 7541</a>.</p></article></div></section>
+<section class="content-panel accent-panel"><p class="eyebrow">The important boundary</p><h2>HTTP/2 still uses TCP</h2><p>Multiplexing separates HTTP exchanges into streams, but TCP presents one ordered byte stream to HTTP/2. If a TCP packet is lost, later bytes cannot be delivered to the application until recovery. This can temporarily hold up multiple HTTP/2 streams on that connection. HTTP/3’s use of QUIC changes this transport behavior.</p></section>
+<section class="content-panel"><h2>What stays the same?</h2><p>Developers still work with URLs, methods, status codes, header fields, caching, and content types. The network representation changes; the application-level model remains recognizable. A browser Network panel can show the negotiated protocol alongside request and response details.</p><p>HTTP/2 improves how exchanges share a connection, but does not guarantee a faster result for every site. Server configuration, latency, payload size, congestion, and client support all affect performance.</p></section>
+<p class="page-next"><a href="http3.html">Next: see what QUIC changes in HTTP/3 <span aria-hidden="true">→</span></a></p>
+</main>
+<footer class="site-footer">
+<p>This is a class project for <a href="https://ksuweb.github.io/IT3203/">IT 3203 Web Development</a>.</p>
+<p><a href="about.html">About this project</a></p>
+</footer>
+</body>
+</html>
